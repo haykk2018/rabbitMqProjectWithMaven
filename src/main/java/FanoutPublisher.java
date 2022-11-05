@@ -4,20 +4,20 @@ import java.util.concurrent.TimeoutException;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.DeliverCallback;
 
-public class Consumer {
+public class FanoutPublisher {
 
 	public static void main(String[] args) throws IOException, TimeoutException {
 		ConnectionFactory factory = new ConnectionFactory();
 		Connection connection = factory.newConnection();
 		Channel channel = connection.createChannel();
 		
-		DeliverCallback deliverCallback = (consumerTag, delivery) -> {
-			String message = new String (delivery.getBody());
-			System.out.println("Message received = " + message);
-		};
-		channel.basicConsume("Queue-1", true, deliverCallback, consumerTag -> {});
+		String message = "Message For Mobile and AC";
+		
+		channel.basicPublish("Fanout-Exchange", "", null, message.getBytes());
+		
+		channel.close();
+		connection.close();
 	}
 
 }

@@ -1,8 +1,19 @@
-# rabbitMqProjectWithMaven!
+# Exchanges!
 
-first we need make rabitMQ server in our local, then open http://127.0.0.1:15672/#/queues and add new queue by name "Queue-1"
+1. Direct Exchange
 
-![Screenshot from 2022-11-05 19-21-23](https://user-images.githubusercontent.com/41595475/200127245-c49541cb-46d3-4130-a8d7-7dfb248c557a.png)
+add new exchange Direct-Exchange, set type direct add three queues corresponding by photo, and go to Direct-Exchange and bind it from three queues
 
-1. by first-send tag commit - we send message to rabbitmq server without exchange primary to queue
-2. we created  two more class it created queue from code
+![](../../Pictures/Screenshot from 2022-11-05 21-16-33.png)
+
+2. Fanout Exchange
+
+![](../../Pictures/Screenshot from 2022-11-05 21-19-17.png)
+
+3. Topic Exchange
+ 
+![](../../Pictures/Screenshot from 2022-11-05 21-20-56.png)
+
+4. Headers Exchange
+
+![](../../Pictures/Screenshot from 2022-11-05 21-12-09.png)
