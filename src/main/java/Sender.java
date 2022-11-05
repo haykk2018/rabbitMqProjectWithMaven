@@ -2,7 +2,7 @@ import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 
-import java.nio.charset.StandardCharsets;
+import static java.nio.charset.StandardCharsets.*;
 
 public class Sender {
     private final static String QUEUE_NAME = "Queue-2";
@@ -17,7 +17,7 @@ public class Sender {
 
             for (int i = 0; i < 10; i++) {
                 String message = "hello from sender " + i;
-                channel.basicPublish("", QUEUE_NAME, null, message.getBytes(StandardCharsets.UTF_8));
+                channel.basicPublish("", QUEUE_NAME, null, message.getBytes(UTF_8));
                 System.out.println(" [x] Sent '" + message + "'");
             }
         }
